@@ -1,5 +1,6 @@
 package com.loyius.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,8 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //Instant is preferable to Date format
+    //Instant is preferable to Date forma
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'",timezone = "GMT")
     private Instant moment;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -31,9 +33,10 @@ public class Order implements Serializable {
 
     public Order() {}
 
-    public Order(Long id, Instant moment) {
+    public Order(Long id, Instant moment, User client) {
         this.id = id;
         this.moment = moment;
+        this.client = client;
     }
 
     public Long getId() { return id; }

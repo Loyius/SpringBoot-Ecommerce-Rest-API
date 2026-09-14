@@ -14,27 +14,23 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class UserResource {
 
-    private final UserService userService;
+    private final UserService service;
 
-    public UserResource(UserService userService) {
-        this.userService = userService;
+    public UserResource(UserService service) {
+        this.service = service;
     }
 
     @GetMapping
     public ResponseEntity<List<User>> getUser() {
-        List<User> list = userService.getUsers();
-        if (list.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        List<User> list = service.getUsers();
+        if (list.isEmpty()) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long id) {
-        User obj = userService.getUserById(id);
-        if (obj == null) {
-            return ResponseEntity.notFound().build();
-        }
+        User obj = service.getUserById(id);
+        if (obj == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(obj);
     }
 }
