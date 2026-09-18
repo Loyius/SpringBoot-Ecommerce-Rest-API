@@ -20,7 +20,7 @@ public class OrderResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<Order>> getAllOrders() {
+    public ResponseEntity<List<Order>> getlOrders() {
         List<Order> list = service.getOrders();
         if(list.isEmpty()) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(list);

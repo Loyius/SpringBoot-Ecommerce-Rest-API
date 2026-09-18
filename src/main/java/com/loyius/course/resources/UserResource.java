@@ -21,7 +21,7 @@ public class UserResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getUser() {
+    public ResponseEntity<List<User>> getUsers() {
         List<User> list = service.getUsers();
         if (list.isEmpty()) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(list);

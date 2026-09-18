@@ -16,12 +16,12 @@ public class CategoryService {
         this.repository = repository;
     }
 
-    public List<Category> findAll() {
+    public List<Category> getCategories() {
         return repository.findAll();
     }
 
-    public Category findById(Long id) {
-        Optional<Category> obj = repository.findById(id);
-        return obj.orElse(null);
+    public Category getCategoryById(Long id) {
+        Optional<Category> category = repository.findById(id);
+        return category.orElse(null);
     }
 }
