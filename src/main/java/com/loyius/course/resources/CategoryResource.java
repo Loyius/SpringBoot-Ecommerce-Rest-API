@@ -17,9 +17,7 @@ public class CategoryResource {
 
     private CategoryService service;
 
-    public CategoryResource(CategoryService service) {
-        this.service = service;
-    };
+    public CategoryResource(CategoryService service) { this.service = service;};
 
     @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {

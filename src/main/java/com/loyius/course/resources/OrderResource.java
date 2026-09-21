@@ -15,9 +15,7 @@ public class OrderResource {
 
     private final OrderService service;
 
-    public OrderResource(OrderService service) {
-       this.service = service;
-    }
+    public OrderResource(OrderService service) { this.service = service;}
 
     @GetMapping
     public ResponseEntity<List<Order>> getlOrders() {
