@@ -2,10 +2,12 @@ package com.loyius.course.config;
 
 import com.loyius.course.entities.Category;
 import com.loyius.course.entities.Order;
+import com.loyius.course.entities.OrderItem;
 import com.loyius.course.entities.OrderStatus;
 import com.loyius.course.entities.Product;
 import com.loyius.course.entities.User;
 import com.loyius.course.repositories.CategoryRepository;
+import com.loyius.course.repositories.OrderItemRepository;
 import com.loyius.course.repositories.OrderRepository;
 import com.loyius.course.repositories.ProductRepository;
 import com.loyius.course.repositories.UserRepository;
@@ -30,11 +32,14 @@ public class TestConfig implements CommandLineRunner {
 
     private final ProductRepository productRepository;
 
-    public TestConfig(UserRepository userRepository,  OrderRepository orderRepository,CategoryRepository categoryRepository, ProductRepository productRepository) {
+    private final OrderItemRepository orderItemRepository;
+
+    public TestConfig(UserRepository userRepository,  OrderRepository orderRepository,CategoryRepository categoryRepository, ProductRepository productRepository, OrderItemRepository orderItemRepository) {
         this.userRepository = userRepository;
         this.orderRepository = orderRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     @Override
@@ -50,7 +55,7 @@ public class TestConfig implements CommandLineRunner {
         Category cat3 = new Category(null, "Computers");
 
         categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
-        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4));
+        productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
         p1.getCategories().add(cat1);
         p2.getCategories().add(cat2);
@@ -70,6 +75,12 @@ public class TestConfig implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1, u2));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+        orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
     }
 
 
