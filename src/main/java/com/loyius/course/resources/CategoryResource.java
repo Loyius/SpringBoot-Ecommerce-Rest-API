@@ -2,7 +2,6 @@ package com.loyius.course.resources;
 
 import com.loyius.course.entities.Category;
 import com.loyius.course.services.CategoryService;
-import com.loyius.course.services.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
