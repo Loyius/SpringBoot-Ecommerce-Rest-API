@@ -27,7 +27,7 @@ public class ProductResource {
         return ResponseEntity.ok().body(list);
     }
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Product> getProductById(@PathVariable(value = "id") Long id) {
         Product obj = service.getProductById(id);
         if(obj== null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok().body(obj);
