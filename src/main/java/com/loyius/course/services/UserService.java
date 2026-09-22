@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-
     private final UserRepository repository;
+
     public UserService(UserRepository repository) {
         this.repository = repository;
     }
@@ -23,4 +23,6 @@ public class UserService {
         Optional<User> user = repository.findById(id);
         return user.orElse(null);
     }
+
+    public User insertNewUser(User obj){ return repository.save(obj); }
 }

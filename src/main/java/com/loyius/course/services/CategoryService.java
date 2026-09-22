@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Service
 public class CategoryService {
-
     private CategoryRepository repository;
 
     public CategoryService(CategoryRepository repository) {
