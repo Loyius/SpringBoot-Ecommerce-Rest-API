@@ -1,6 +1,6 @@
 package com.loyius.course.entities;
 
-//TODO: fix it
+
 public enum OrderStatus {
 
     WAITING_PAYMENT(1),
