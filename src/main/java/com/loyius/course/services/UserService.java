@@ -4,6 +4,7 @@ import com.loyius.course.entities.User;
 import com.loyius.course.repositories.UserRepository;
 import com.loyius.course.services.exceptions.DatabaseException;
 import com.loyius.course.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -44,9 +45,10 @@ public class UserService {
 
     public User updateUserById(Long id, User user){
         //Prepare the monitored object to update and then post it in the db
-        User entity  = repository.getReferenceById(id);
+       try{ User entity  = repository.getReferenceById(id);
         updateData(entity,user);
-        return repository.save(entity);
+        return repository.save(entity);}
+       catch(EntityNotFoundException e){ throw new ResourceNotFoundException(id); }
     }
 
     private void updateData(User entity, User user) {
