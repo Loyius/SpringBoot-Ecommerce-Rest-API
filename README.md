@@ -1,4 +1,4 @@
-# Course API
+# SpringBoot-Ecommerce-Rest-API
 
 A RESTful e-commerce backend built with **Spring Boot 4** and **Java 25**, featuring product catalog management, category associations, order processing, and payment tracking. Database migrations are managed with **Flyway**, and the API is documented with **Swagger/OpenAPI**.
 
