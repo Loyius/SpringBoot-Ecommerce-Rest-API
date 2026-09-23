@@ -11,7 +11,7 @@ import java.util.Optional;
 public class ProductService {
     private ProductRepository repository;
 
-    public ProductService(ProductRepository productRepository) {this.repository = productRepository;}
+    public ProductService(ProductRepository productRepository) { this.repository = productRepository;}
 
     public List<Product> getProducts() { return repository.findAll();}
 
