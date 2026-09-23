@@ -2,6 +2,11 @@
 
 A RESTful e-commerce backend built with **Spring Boot 4** and **Java 25**, featuring product catalog management, category associations, order processing, and payment tracking. Database migrations are managed with **Flyway**, and the API is documented with **Swagger/OpenAPI**.
 
+## Live Demo
+
+- **API base URL:** https://springboot-ecommerce-rest-api.onrender.com/
+- **Swagger:** https://springboot-ecommerce-rest-api.onrender.com/swagger-ui/index.html
+
 ## Tech Stack
 
 - **Java 25**
